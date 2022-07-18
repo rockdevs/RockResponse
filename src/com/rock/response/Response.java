@@ -12,21 +12,39 @@ public abstract class Response {
 
     private LocalDateTime time;
 
+    /**
+     * @field Redirect Link for Response
+     */
+    private String redirect;
+
+    public Response(boolean success) {
+        this.success = success;
+        this.time = LocalDateTime.now();
+    }
+
     public Response(boolean success, String message) {
-        this(success); // Bool Constractoru cagiri
+        this(success);
         this.message = message;
         this.time = LocalDateTime.now();
+    }
+
+    public Response(boolean success, String message,String redirect) {
+        this(success,message);
+        this.redirect = redirect;
     }
 
     public Response(boolean success, String message, LocalDateTime localDateTime) {
-        this(success); // Bool Constractoru cagiri
-        this.message = message;
+        this(success,message);
         this.time =localDateTime;
     }
 
-    public Response(boolean success) { //bool Constroctor
-        this.success = success;
-        this.time = LocalDateTime.now();
+    public Response(boolean success, String message, LocalDateTime localDateTime,String redirect) {
+        this(success,message,localDateTime);
+        this.redirect =redirect;
+    }
+
+    public void setRedirect(String redirect) {
+        this.redirect = redirect;
     }
 
     public boolean isSuccess(){
@@ -39,5 +57,9 @@ public abstract class Response {
 
     public LocalDateTime getTime() {
         return this.time;
+    }
+
+    public String getRedirect() {
+        return redirect;
     }
 }

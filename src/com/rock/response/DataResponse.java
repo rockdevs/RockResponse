@@ -4,9 +4,15 @@ public class DataResponse<T> extends Response {
 
     private final T data;
 
+
     public DataResponse(T data, boolean success, String message) {
         super(success, message);
         this.data=data;
+    }
+
+    public DataResponse(T data, boolean success, String message,String redirect) {
+        this(data,success, message);
+        super.setRedirect(redirect);
     }
 
     public DataResponse(boolean success, T data) {

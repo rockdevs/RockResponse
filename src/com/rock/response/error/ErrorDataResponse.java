@@ -22,6 +22,8 @@ public  final class ErrorDataResponse<T> extends DataResponse<T> {
         super(null,false,message);
     }
 
+    public ErrorDataResponse(String message,String redirect){super(null,false,message,redirect);}
+
     public ErrorDataResponse(){
         super(false,null);
     }

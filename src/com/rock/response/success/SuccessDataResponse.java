@@ -8,8 +8,13 @@ import com.rock.response.DataResponse;
  */
 public final class SuccessDataResponse<T> extends DataResponse<T> {
 
+
     public SuccessDataResponse(T data, String message) {
         super(data, true, message);
+    }
+
+    public SuccessDataResponse(T data, String message,String redirect) {
+        super(data, true, message,redirect);
     }
 
     public SuccessDataResponse(T data){
